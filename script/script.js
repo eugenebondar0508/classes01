@@ -11,23 +11,32 @@ function DomElement(selector, height, width, bg, fontSize){
 }
 
 DomElement.prototype.write = function(){
-    let newElement;
+    let div = document.createElement('div');
+    let p = document.createElement('p');
+    let text = 'Привет!';
     if(this.selector.substr(0,1) === '.'){
-        newElement = document.createElement('div');
-        newElement.classList.add(this.selector.substr(1));
-    } else if(this.selector.substr(0,1) === '#'){
-        newElement = document.createElement('p');
-        newElement.id = this.selector.substr(1);
+        div.classList.add(this.selector.substr(1));
+        div.innerHTML = '<div>'+text+'</div>';
+        document.body.append(div);
     }
-    newElement = 'Привет!!!  Привет!!! Привет!!! Привет!!! Привет!!! Привет!!! Привет!!! Привет!!! Привет!!! Привет!!!  ';
-    newElement.style.cssText = 'background-color:' + this.bg+';'
-    'width:'+this.width+'px;'
-    'height:'+this.height+'px;'
-    'font-size:'+this.fontSize+ 'px;';
-    document.write(newElement);
+
+     else if(this.selector.substr(0,1) === '#'){
+        p.id = this.selector.substr(1);
+        p.innerHTML = '<p>'+text+'</p>';
+        document.body.append(p);
+    };
+    div.style.cssText = `background-color:  ${this.bg};
+    width:${this.width}px;
+    height:${this.height}px;
+    font-size:{this.fontSize} px;`;
+    p.style.cssText = `background-color:  ${this.bg};
+    width:${this.width}px;
+    height:${this.height}px;
+    font-size:{this.fontSize} px;`;
+
 }
 
-let newDom = new DomElement('.block', '10', '30', 'red', '14');
+let newDom = new DomElement('.block', '100', '300', 'red', '32');
 console.log(newDom);
 
 newDom.write();
