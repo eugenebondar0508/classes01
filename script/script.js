@@ -1,64 +1,77 @@
 'use strict';
 
-let hours = new Date();
-let div = document.createElement('div');
+
 let timesOfDay = function(){
+  let hours = new Date();
+  let divForTimesOfDay = document.createElement('div');
   let goodMorning = 'Доброе утро!';
   let goodDay = 'Добрый день!';
   let goodNight = 'Доброй ночи!';
   let goodEvening ='Добрый вечер!';
   
   if(hours.getHours() <= 6 || hours.getHours() >= 22){
-    div.innerHTML = '<div>' +goodNight+'</div>';
-    document.body.append(div);
+    divForTimesOfDay.innerHTML = '<div>' +goodNight+'</div>';
+    document.body.append(divForTimesOfDay);
   } else if(hours.getHours() < 18 && hours.getHours() > 10){
-    div.innerHTML ='<div>' + goodDay +'</div>';
-    document.body.append(div);
+    divForTimesOfDay.innerHTML ='<div>' + goodDay +'</div>';
+    document.body.append(divForTimesOfDay);
   } else if(hours.getHours() > 18 && hours.getHours() < 22 ){
-    div.innerHTML = '<div>' + goodEvening +'</div>';
-    document.body.append(div);
+    divForTimesOfDay.innerHTML = '<div>' + goodEvening +'</div>';
+    document.body.append(divForTimesOfDay);
   } else {
-    div.innerHTML ='<div>' + goodMorning +'</div>';
-    document.body.append(div);
+    divForTimesOfDay.innerHTML ='<div>' + goodMorning +'</div>';
+    document.body.append(divForTimesOfDay);
   }
 
   
 }
 timesOfDay() ;
 
+const showDay = () =>{
+  let divForShowDay = document.createElement('div');
+  let days = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота'
+  ];
+  let day = new Date();
+  let now = day.getDay();
+  divForShowDay.innerHTML =  '<div>' + `Сегодня: ${days[now]}` + '</div>';
+  document.body.append(divForShowDay);
+};
 
-let divTwo = document.createElement('div');
-let days = [
-  'Воскресенье',
-  'Понедельник',
-  'Вторник',
-  'Среда',
-  'Четверг',
-  'Пятница',
-  'Суббота'
-];
-let d = new Date();
-let n = d.getDay();
-divTwo.innerHTML =  '<div>' + `Сегодня: ${days[n]}` + '</div>';
-document.body.append(divTwo);
-
-
-let div3 = document.createElement('div');
-let date = new Date();
-div3.innerHTML =  '<div>' + (`Текущуу время : ${date.toLocaleTimeString('en')}`) + '</div>';
-document.body.append(div3);
+showDay();
 
 
-let div4 = document.createElement('div');
-let NewYear = new Date(" Jan 1, 2022 00:00:00").getTime();
-let nY = function(){
-  let now = new Date().getTime();
-  let distance = NewYear - now;
-  let days = Math.floor(distance/(1000*60*60*24));
-  div4.innerHTML =  '<div>' + (`До Нового Года осталось: ${days} Дней`)+ '</div>';
-  document.body.append(div4);
+
+const showTime = () => {
+  let divForShowTime = document.createElement('div');
+  let date = new Date();
+  divForShowTime.innerHTML =  '<div>' + (`Текущуу время : ${date.toLocaleTimeString('en')}`) + '</div>';
+  document.body.append(divForShowTime);
 }
-nY();
+showTime();
+
+
+
+
+
+
+
+let timeToNewYear = function(){
+  let divForNewYear = document.createElement('div');
+  let newYear = new Date(" Jan 1, 2022 00:00:00").getTime();
+  let now = new Date().getTime();
+  let distance = newYear - now;
+  let days = Math.floor(distance/(1000*60*60*24));
+  divForNewYear.innerHTML =  '<div>' + (`До Нового Года осталось: ${days} Дней`)+ '</div>';
+  document.body.append(divForNewYear);
+}
+timeToNewYear();
 
 
 
