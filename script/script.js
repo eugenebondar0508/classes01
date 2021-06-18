@@ -6,7 +6,7 @@ let timesOfDay = function(){
   let goodMorning = 'Доброе утро!';
   let goodDay = 'Добрый день!';
   let goodNight = 'Доброй ночи!';
-  let goodEvening ='Добрыый вечер!';
+  let goodEvening ='Добрый вечер!';
   
   if(hours.getHours() <= 6 || hours.getHours() >= 22){
     div.innerHTML = '<div>' +goodNight+'</div>';
@@ -26,6 +26,8 @@ let timesOfDay = function(){
 }
 timesOfDay() ;
 
+
+let divTwo = document.createElement('div');
 let days = [
   'Воскресенье',
   'Понедельник',
@@ -37,22 +39,24 @@ let days = [
 ];
 let d = new Date();
 let n = d.getDay();
-div.innerHTML =  '<div>' + (`Сегодня: ${days[n]}`) + '</div>';
-document.body.append(div);
+divTwo.innerHTML =  '<div>' + `Сегодня: ${days[n]}` + '</div>';
+document.body.append(divTwo);
 
+
+let div3 = document.createElement('div');
 let date = new Date();
-div.innerHTML =  '<div>' + (`Текущуу время : ${date.toLocaleTimeString('en')}`) + '</div>';
-document.body.append(div);
+div3.innerHTML =  '<div>' + (`Текущуу время : ${date.toLocaleTimeString('en')}`) + '</div>';
+document.body.append(div3);
 
 
-
+let div4 = document.createElement('div');
 let NewYear = new Date(" Jan 1, 2022 00:00:00").getTime();
 let nY = function(){
   let now = new Date().getTime();
   let distance = NewYear - now;
   let days = Math.floor(distance/(1000*60*60*24));
-  div.innerHTML =  '<div>' + (`До Нового Года осталось: ${days} Дней`)+ '</div>';
-  document.body.append(div);
+  div4.innerHTML =  '<div>' + (`До Нового Года осталось: ${days} Дней`)+ '</div>';
+  document.body.append(div4);
 }
 nY();
 
