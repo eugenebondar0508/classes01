@@ -5,7 +5,7 @@ body {
     height: 100%;
 }
 ​
-body, form, div, p, a, img, h1, h2, h3, h4, h5, h6, table, table tr, table td {
+body, form, div, p, a, img, h1, h2, h3, h4, h5, h6, div, table, table tr, table td {
     border: none;
     color: #000000;
     font-family: Arial;
